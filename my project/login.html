@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+        *{
+            font-family: 'poppins',sans-serif;
+        }
+        .small-container{
+            margin-top: 50px;
+        }
+        table{
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .cart{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        th{
+            text-align: left;
+            padding: 10px;
+            color: #fff;
+            background: #ff523b;
+
+        }
+        td{
+            padding: 10px 5px;
+        }
+        input{
+            width: 30px;
+            height: 30px;
+           text-align: center;
+        }
+        .minus-btn,.plus-btn{
+            width: 30px;
+            height: 30px;
+            padding: 5px;
+            background: #ff523b;
+            color: #fff;
+            border: none;
+        }
+        td a{
+            color: #ff523b;
+            font-size: 12px;
+            text-decoration: none;
+        }
+        .pr-details{
+            padding: 0 10px;
+        }
+        .total-price{
+            display: flex;
+            justify-content: flex-end;
+        }
+        .total-price tr{
+            border-top: 2px sloid #ff523b;
+            width: 100%;
+            max-width: 350px;
+        }
+        .image-cart{
+            width:100px;
+            height: 100px; 
+            margin-right: 10px;
+        }
+        .image-cart:hover{
+            transform: scale(1.1);
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="small-container">
+        <table>
+            <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Sub Total</th>
+            </tr>
+            <tr>
+                <td>
+                    <div class="cart">
+                        <img src="./product-1.jpg" class="image-cart" alt="" >
+                        <div class="pr-details">
+                            <p>T-SHIRT</p>
+                            <small>Price: $50.00</small><br>
+                            <a href="">Remove</a>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                   <button class="minus-btn" onclick="decrease()">-</button>
+                   <input type="text" value="0" id="text-box">
+                   <button class="plus-btn" onclick="increase()">+</button>
+                </td>
+                
+                <td>$50.00</td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="cart">
+                        <img src="./product-2.jpg" alt=""class="image-cart">
+                        <div class="pr-details">
+                            <p>JALABIYA</p>
+                            <small>Price: $50.00</small><br>
+                            <a href="">Remove</a>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <button class="minus-btn" onclick="decrease()">-</button>
+                    <input type="text" value="0" id="text-box">
+                    <button class="plus-btn" onclick="increase()">+</button>
+                 </td>
+                <td>$50.00</td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="cart">
+                        <img src="./product-3.jpg" alt="" class="image-cart">
+                        <div class="pr-details">
+                            <p>HIJAB</p>
+                            <small>Price: $50.00</small><br>
+                            <a href="">Remove</a>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <button class="minus-btn" onclick="decrease()">-</button>
+                    <input type="text" value="0" id="text-box">
+                    <button class="plus-btn" onclick="increase()">+</button>
+                 </td>
+                <td>$50.00</td>
+            </tr>
+        </table>
+        <table class="total-price">
+            <tr>
+               <td>Sub Total</td>
+               <td>$200.00</td>
+            </tr>
+            <tr>
+               <td>Tax</td>
+               <td>$30.00</td>
+            </tr>
+            <tr>
+               <td>Total</td>
+               <td>$230.00</td>
+            </tr>
+        </table>
+    </div>
+</body>
+    <script>
+        const decrease = ()=>{
+            let itemval= document.getElementById('text-box');
+            if(itemval<=0){
+                itemval.value=0;
+            }else{
+                itemval.value=parseInt(itemval.value)-1;
+
+            }
+        }
+        
+        const increase = ()=>{
+            var itemval = document.getElementById('text-box');
+            if(itemval.value>=5){
+               itemval.value=5;
+            }else{
+                itemval.value=parseInt(itemval.value)+1;
+            }
+        }
+    </script>
+</body>
+</html>
